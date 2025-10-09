@@ -1,0 +1,38 @@
+[
+    {
+        "id": "main-01",
+        "category": "メイン",
+        "name": "特選フィレステーキ",
+        "price": "3,800円",
+        "description": "厳選されたフィレ肉を低温でじっくり焼き上げました。芳醇な赤ワインソースとご一緒に。",
+        "image_path": "/images/main-01.jpeg",
+        "allergens": "小麦, 乳, 卵"
+    },
+    {
+        "id": "main-02",
+        "category": "メイン",
+        "name": "カルボナーラ",
+        "price": "4,200円",
+        "description": "厳選されたフィレ肉を低温でじっくり焼き上げました。芳醇な赤ワインソースとご一緒に。",
+        "image_path": "/images/main-02.webp",
+        "allergens": "小麦, 乳, 卵"
+    },
+    {
+        "id": "side-01",
+        "category": "サイド",
+        "name": "ガーリックシュリンプ",
+        "price": "1,200円",
+        "description": "プリプリのエビをガーリックバターで炒めた一品。パンとの相性も抜群です。",
+        "image_path": "/images/side-01.jpg",
+        "allergens": "エビ"
+    },
+    {
+        "id": "drink-01",
+        "category": "ドリンク",
+        "name": "自家製レモネード",
+        "price": "650円",
+        "description": "新鮮なレモンを丸ごと使った、爽やかな自家製ドリンクです。",
+        "image_path": "/images/drink-01.webp",
+        "allergens": "なし"
+    }
+]

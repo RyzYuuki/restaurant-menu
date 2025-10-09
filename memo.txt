@@ -1,0 +1,2 @@
+C:\Users\FujiR\OneDrive\デスクトップ\_myroom\restaurant-menu
+npm run dev
