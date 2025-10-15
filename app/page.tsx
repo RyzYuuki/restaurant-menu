@@ -1,12 +1,45 @@
+"use client";
+
+import React, { useState } from 'react';
 import { MenuCard } from '../components/MenuCard';
 import { MenuHeader } from '../components/MenuHeader';
 import { TittleHeader } from '../components/TittleHeader';
 import menuData from '@/data/menu.json';
 import Link from 'next/link';
+import { MenuModal } from '../components/MenuModal';
+
+
+// app/page.tsx の上部に記述
+
+interface MenuItem {
+    id: string;
+    category: string;
+    name: string;
+    price: string;
+    description: string;
+    image_path: string;
+    allergens: string;
+    base_price: number;
+    course_extra: number;
+}
 
 const categories = ['メイン', 'サイド', 'ドリンク', 'デザート']; 
 
 export default function HomePage() {
+    const menuItems: MenuItem[] = menuData as MenuItem[];
+
+    const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+
+    // MenuCardクリック時の処理関数
+    const handleCardClick = (item: MenuItem) => {
+        setSelectedItem(item); // 選択されたメニューのデータをStateに格納
+    };
+
+    // モーダルを閉じる処理関数
+    const handleCloseModal = () => {
+        setSelectedItem(null); // Stateをnullに戻すことで、モーダルを非表示にする
+    };
+
     return (
     <div className="container mx-auto p-4 max-w-7xl">
 
@@ -26,23 +59,34 @@ export default function HomePage() {
                         </h2>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* JSONデータをフィルタリングし、該当カテゴリのメニューのみを map で展開 */}
-                        {menuData
+                        {menuItems
                             .filter(item => item.category === category)
                             .map(item => (
-                                <MenuCard 
-                                    key={item.id} 
-                                    id={item.id} 
-                                    name={item.name} 
-                                    price={item.price} 
-                                    image_path={item.image_path}
-                                    allergens={item.allergens} 
-                                />
-                            ))}
+                            <MenuCard 
+                                key={item.id} 
+                                // ★★★ クリックイベントを渡し、Stateを更新するように修正 ★★★
+                                onClick={() => handleCardClick(item)} 
+                                id={item.id} 
+                                name={item.name} 
+                                price={item.price} 
+                                image_path={item.image_path}
+                                allergens={item.allergens}
+                            />
+                            ))
+                        }
                         </div>
                     </section>
                 ))}
             </div>
+
+            {/* モーダル表示部分 */}
+            {selectedItem && (
+                <MenuModal 
+                    item={selectedItem} 
+                    onClose={handleCloseModal} 
+                />
+            )}
+
         </div>
     );
 }
