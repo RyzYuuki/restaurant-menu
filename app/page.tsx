@@ -1,56 +1,92 @@
-import { MenuCard } from '../components/MenuCard';
-// JSONデータをインポート
-import menuData from '@/data/menu.json';
+"use client";
 
-const categories = ['メイン', 'サイド', 'ドリンク']; 
+import React, { useState } from 'react';
+import { MenuCard } from '../components/MenuCard';
+import { MenuHeader } from '../components/MenuHeader';
+import { TittleHeader } from '../components/TittleHeader';
+import menuData from '@/data/menu.json';
+import Link from 'next/link';
+import { MenuModal } from '../components/MenuModal';
+
+
+// app/page.tsx の上部に記述
+
+interface MenuItem {
+    id: string;
+    category: string;
+    name: string;
+    price: string;
+    description: string;
+    image_path: string;
+    allergens: string;
+    base_price: number;
+    course_extra: number;
+}
+
+const categories = ['メイン', 'サイド', 'ドリンク', 'デザート']; 
 
 export default function HomePage() {
-  return (
+    const menuItems: MenuItem[] = menuData as MenuItem[];
+
+    const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+
+    // MenuCardクリック時の処理関数
+    const handleCardClick = (item: MenuItem) => {
+        setSelectedItem(item); // 選択されたメニューのデータをStateに格納
+    };
+
+    // モーダルを閉じる処理関数
+    const handleCloseModal = () => {
+        setSelectedItem(null); // Stateをnullに戻すことで、モーダルを非表示にする
+    };
+
+    return (
     <div className="container mx-auto p-4 max-w-7xl">
-      <h1 className="text-4xl font-serif text-center my-8 text-gray-800">
-        レストラン メニュー
-      </h1>
 
-      {/* 1. ページ内ナビゲーション（アンカーリンク） */}
-      <nav className="sticky top-0 bg-white shadow-md p-3 mb-8 z-10">
-        <ul className="flex justify-center space-x-6 text-lg font-semibold">
-          {categories.map((category) => (
-            <li key={category}>
-              {/* hrefに '#' とカテゴリ名を付けてページ内IDへジャンプ */}
-              <a href={`#${category}`} className="text-red-600 hover:text-red-800 transition-colors">
-                {category}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        {/* タイトル */}
+        <TittleHeader />
 
-      {/* 2. カテゴリごとのセクションとメニューカードの自動生成 */}
-      {categories.map((category) => (
-        <section key={category} id={category} className="mb-12 pt-16 -mt-16"> 
-          {/* pt-16 -mt-16 はアンカーリンクの飛び先がナビゲーションで隠れないようにするテクニック */}
-          <h2 className="text-3xl font-serif border-b-2 border-red-600 pb-2 mb-6 text-gray-800">
-            {category}
-          </h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* JSONデータをフィルタリングし、該当カテゴリのメニューのみを map で展開 */}
-            {menuData
-              .filter(item => item.category === category)
-              .map(item => (
-                <MenuCard 
-                  key={item.id} 
-                  id={item.id} 
-                  name={item.name} 
-                  price={item.price} 
-                  image_path={item.image_path}
-                  allergens={item.allergens} 
+        {/* カテゴリー */}
+        <MenuHeader />
+
+        {/* カテゴリごとのセクションとメニューカードの自動生成 */}
+        <div className="container mx-auto p-4 max-w-7xl mt-8"> 
+            {categories.map((category) => (
+                <section key={category} id={category} className="mb-12 pt-16 -mt-16"> 
+                    {/* pt-16 -mt-16 はアンカーリンクの飛び先がナビゲーションで隠れないようにするテクニック */}
+                    <h2 className="text-3xl font-serif border-b-2 border-red-600 pb-2 mb-6 text-gray-800">
+                        {category}
+                        </h2>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {menuItems
+                            .filter(item => item.category === category)
+                            .map(item => (
+                            <MenuCard 
+                                key={item.id} 
+                                // ★★★ クリックイベントを渡し、Stateを更新するように修正 ★★★
+                                onClick={() => handleCardClick(item)} 
+                                id={item.id} 
+                                name={item.name} 
+                                price={item.price} 
+                                image_path={item.image_path}
+                                allergens={item.allergens}
+                            />
+                            ))
+                        }
+                        </div>
+                    </section>
+                ))}
+            </div>
+
+            {/* モーダル表示部分 */}
+            {selectedItem && (
+                <MenuModal 
+                    item={selectedItem} 
+                    onClose={handleCloseModal} 
                 />
-              ))
-            }
-          </div>
-        </section>
-      ))}
-    </div>
-  );
+            )}
+
+        </div>
+    );
 }
