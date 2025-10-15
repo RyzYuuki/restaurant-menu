@@ -6,7 +6,9 @@
         "price": "3,800円",
         "description": "厳選されたフィレ肉を低温でじっくり焼き上げました。芳醇な赤ワインソースとご一緒に。",
         "image_path": "/images/main-01.jpeg",
-        "allergens": "小麦, 乳, 卵"
+        "allergens": "小麦, 乳, 卵",
+        "base_price": 3800,
+        "course_extra": 500
     },
     {
         "id": "main-02",
@@ -15,7 +17,20 @@
         "price": "4,200円",
         "description": "厳選されたフィレ肉を低温でじっくり焼き上げました。芳醇な赤ワインソースとご一緒に。",
         "image_path": "/images/main-02.webp",
-        "allergens": "小麦, 乳, 卵"
+        "allergens": "小麦, 乳, 卵",
+        "base_price": 3800,
+        "course_extra": 500
+    },
+    {
+        "id": "salad-01",
+        "category": "サラダ",
+        "name": "グリーンサラダ",
+        "price": "800円",
+        "description": "新鮮なリーフと自家製ドレッシング。",
+        "image_path": "/images/salad-01.jpg",
+        "allergens": "なし",
+        "base_price": 800,
+        "course_extra": 0
     },
     {
         "id": "side-01",
@@ -24,7 +39,9 @@
         "price": "1,200円",
         "description": "プリプリのエビをガーリックバターで炒めた一品。パンとの相性も抜群です。",
         "image_path": "/images/side-01.jpg",
-        "allergens": "エビ"
+        "allergens": "エビ",
+        "base_price": 1200,
+        "course_extra": 500
     },
     {
         "id": "drink-01",
@@ -33,6 +50,34 @@
         "price": "650円",
         "description": "新鮮なレモンを丸ごと使った、爽やかな自家製ドリンクです。",
         "image_path": "/images/drink-01.webp",
-        "allergens": "なし"
+        "allergens": "なし",
+        "base_price": 650,
+        "course_extra": 0
+    },
+    {
+        "id": "course-drink-none",
+        "category": "コースドリンク", 
+        "name": "なし",
+        "image_path": "",
+        "base_price": 0,
+        "course_extra": -500
+    },
+    {
+        "id": "course-drink-bar",
+        "category": "コースドリンク",
+        "name": "ドリンクバー",
+        "description": "ソフトドリンク各種飲み放題（基本料金内）",
+        "image_path": "/images/drink-bar.jpg",
+        "base_price": 400,
+        "course_extra": 0
+    },
+    {
+        "id": "dessert-01",
+        "category": "デザート",
+        "name": "本日のジェラート",
+        "description": "...",
+        "image_path": "/images/dessert-01.jpeg",
+        "base_price": 600,
+        "course_extra": 0
     }
 ]
