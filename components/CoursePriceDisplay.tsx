@@ -15,7 +15,7 @@ export const CoursePriceDisplay: React.FC<CoursePriceDisplayProps> = ({ totalExt
     return (
         <div className="p-4 bg-red-50 rounded-lg border border-red-200 shadow-md">
             <h3 className="text-xl font-bold text-gray-800 mb-2">
-                コース料金合計 (税込)
+                セットメニュー料金合計 (税込)
             </h3>
             <div className="flex justify-between items-center">
                 {/* 追加料金の表示: totalExtraが0でなければ表示 */}

@@ -26,7 +26,7 @@ export const CourseMenuWrapper: React.FC<CourseMenuWrapperProps> = ({ menuItems 
     const [selections, setSelections] = useState({
         'サラダ': '',
         'メイン': '',
-        'コースドリンク': '',
+        'セットドリンク': '',
         'デザート': '',
     });
 
@@ -55,7 +55,7 @@ export const CourseMenuWrapper: React.FC<CourseMenuWrapperProps> = ({ menuItems 
         }));
     };
     
-    const courseCategories = ['サラダ', 'メイン', 'コースドリンク', 'デザート'];
+    const courseCategories = ['サラダ', 'メイン', 'セットドリンク', 'デザート'];
 
     return (
         // ★★★ 料金表示と選択肢を並列配置（flexを使って左右に分離） ★★★

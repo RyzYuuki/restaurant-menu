@@ -20,7 +20,7 @@ export default function CoursePage() {
     // TypeScriptでJSONデータをMenuItem型の配列として扱う
     const menuItems: MenuItem[] = menuData as MenuItem[];
 
-    const courseCategories = ['サラダ', 'メイン', 'コースドリンク', 'デザート'];
+    const courseCategories = ['サラダ', 'メイン', 'セットドリンク', 'デザート'];
 
     // フィルタリングしたデータを CourseCalculator に渡たす
     const courseMenuData = menuItems.filter(item => 
@@ -30,7 +30,7 @@ export default function CoursePage() {
     return (
         <div className='container mx-auto p-4 max-w-7xl'>
             <h1 className="text-4xl font-serif text-center my-8 text-gray-800">
-                コースメニュー
+                セットメニュー
             </h1>
 
             {/* カテゴリー */}
@@ -38,7 +38,7 @@ export default function CoursePage() {
 
             <div className="container mx-auto p-4 max-w-7xl mt-8">
                 <h2 className="text-3xl font-serif border-b-2 border-red-600 pb-2 mb-6 text-gray-800">
-                    コースメニューの組み合わせ
+                    セットメニューの組み合わせ
                 </h2>
         
             <CourseMenuWrapper menuItems={courseMenuData} />

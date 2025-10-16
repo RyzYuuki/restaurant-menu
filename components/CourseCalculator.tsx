@@ -83,7 +83,7 @@ export const CourseCalculator: React.FC<CourseCalculatorProps> = ({ menuItems, s
 
         {/* 選択肢の表示 (ここがコース選択の枠となる) */}
         <h3 className="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">
-            コース組み合わせ選択
+            セットメニュー組み合わせ
         </h3>
 
             {/* 選択肢の表示 */}

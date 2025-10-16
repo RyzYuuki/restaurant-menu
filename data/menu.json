@@ -55,21 +55,21 @@
         "course_extra": 0
     },
     {
-        "id": "course-drink-none",
-        "category": "コースドリンク", 
-        "name": "なし",
-        "image_path": "",
-        "base_price": 0,
-        "course_extra": -500
-    },
-    {
         "id": "course-drink-bar",
-        "category": "コースドリンク",
+        "category": "セットドリンク",
         "name": "ドリンクバー",
         "description": "ソフトドリンク各種飲み放題（基本料金内）",
         "image_path": "/images/drink-bar.jpg",
         "base_price": 400,
         "course_extra": 0
+    },
+    {
+        "id": "course-drink-none",
+        "category": "セットドリンク",
+        "name": "なし",
+        "image_path": "",
+        "base_price": 0,
+        "course_extra": -500
     },
     {
         "id": "dessert-01",
