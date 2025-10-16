@@ -6,7 +6,6 @@ import { MenuHeader } from '../components/MenuHeader';
 import { TittleHeader } from '../components/TittleHeader';
 import menuData from '@/data/menu.json';
 import { MenuModal } from '../components/MenuModal';
-import { SubCategoryDropdown } from '../components/SubCategoryDropdown';
 
 
 // app/page.tsx の上部に記述
