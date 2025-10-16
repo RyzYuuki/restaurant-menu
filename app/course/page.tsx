@@ -1,6 +1,7 @@
+"use client";
+
 import Link from 'next/link';
 import { MenuHeader } from '@/components/MenuHeader';
-import { CourseCalculator } from '../../components/CourseCalculator';
 import { CourseMenuWrapper } from '../../components/CourseMenuWrapper';
 import menuData from '@/data/menu.json';
 
@@ -17,6 +18,12 @@ interface MenuItem {
 }
 
 export default function CoursePage() {
+
+    // MenuHeaderに渡すダミー関数
+    const noopToggle = () => {
+        console.log("Sub-navigation toggle skipped on Course Page.");
+    };
+    
     // TypeScriptでJSONデータをMenuItem型の配列として扱う
     const menuItems: MenuItem[] = menuData as MenuItem[];
 
@@ -34,7 +41,10 @@ export default function CoursePage() {
             </h1>
 
             {/* カテゴリー */}
-            <MenuHeader />
+            <MenuHeader
+                isSubNavOpen={false} // サブナビは常に閉じた状態
+                toggleSubNav={noopToggle} // 何もしない関数
+            />
 
             <div className="container mx-auto p-4 max-w-7xl mt-8">
                 <h2 className="text-3xl font-serif border-b-2 border-red-600 pb-2 mb-6 text-gray-800">
