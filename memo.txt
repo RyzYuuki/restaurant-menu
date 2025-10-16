@@ -1,0 +1,24 @@
+## まとめて
+# 修正したファイルをステージング
+git add . 
+
+## 変更箇所のみ
+# 修正したファイルをSearch
+git status
+
+# GitHubにアップロード（プッシュ）
+# 変更した app/layout.tsx を追加
+git add app/layout.tsx
+
+# 変更した data/menu.json を追加
+git add data/menu.json
+
+# (他のファイルは git add しない)
+
+# 変更内容を記録（コミット）
+git commit -m "メニューの内容を更新しました" 
+
+# GitHubにアップロード（プッシュ）
+git push origin main
+
+git add -p
