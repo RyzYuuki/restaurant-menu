@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { CourseCalculator } from './CourseCalculator'; 
-import { CoursePriceDisplay } from './CoursePriceDisplay'; 
+import { CoursePriceDisplay } from './CoursePriceDisplay';
 
 
 interface MenuItem {
@@ -19,7 +19,7 @@ interface CourseMenuWrapperProps {
     menuItems: MenuItem[];
 }
 
-const BASE_COURSE_PRICE = 2500; 
+const BASE_COURSE_PRICE = 3000; 
 
 export const CourseMenuWrapper: React.FC<CourseMenuWrapperProps> = ({ menuItems }) => {
     // 1. 選択状態を管理する State
@@ -58,7 +58,7 @@ export const CourseMenuWrapper: React.FC<CourseMenuWrapperProps> = ({ menuItems 
     const courseCategories = ['サラダ', 'メイン', 'セットドリンク', 'デザート'];
 
     return (
-        // ★★★ 料金表示と選択肢を並列配置（flexを使って左右に分離） ★★★
+        // 料金表示と選択肢を並列配置（flexを使って左右に分離）
         <div className="flex flex-col lg:flex-row-reverse gap-8">
             
             {/* 料金表示（右側、別枠）- 計算結果を渡す */}
@@ -76,12 +76,12 @@ export const CourseMenuWrapper: React.FC<CourseMenuWrapperProps> = ({ menuItems 
             {/* 選択肢の枠（左側、別枠）- 選択更新関数を渡す */}
             <div className="lg:w-2/3">
                 <CourseCalculator 
-                menuItems={menuItems} 
-                selections={selections} 
-                onSelect={handleSelect} // 関数を子に渡す
-                courseCategories={courseCategories}
-            />
+                    menuItems={menuItems} 
+                    selections={selections} 
+                    onSelect={handleSelect} // 関数を子に渡す
+                    courseCategories={courseCategories}
+                />
+            </div>
         </div>
-    </div>
-  );
+    );
 };

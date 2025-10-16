@@ -27,7 +27,7 @@
         "name": "グリーンサラダ",
         "price": "800円",
         "description": "新鮮なリーフと自家製ドレッシング。",
-        "image_path": "/images/salad-01.jpg",
+        "image_path": "/images/salad-01.png",
         "allergens": "なし",
         "base_price": 800,
         "course_extra": 0
@@ -59,7 +59,7 @@
         "category": "セットドリンク",
         "name": "ドリンクバー",
         "description": "ソフトドリンク各種飲み放題（基本料金内）",
-        "image_path": "/images/drink-bar.jpg",
+        "image_path": "/images/drink-bar.png",
         "base_price": 400,
         "course_extra": 0
     },

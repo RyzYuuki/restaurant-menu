@@ -23,6 +23,18 @@ export default function CoursePage() {
     const noopToggle = () => {
         console.log("Sub-navigation toggle skipped on Course Page.");
     };
+
+    // デザートの「なし」オプションの定義
+    const noDessertOption: MenuItem = {
+        id: 'no_dessert',
+        category: 'デザート',
+        name: 'なし',
+        description: '',
+        image_path: '/images/no_selection.png',
+        allergens: '',
+        base_price: 0,
+        course_extra: 0,
+    };
     
     // TypeScriptでJSONデータをMenuItem型の配列として扱う
     const menuItems: MenuItem[] = menuData as MenuItem[];
@@ -33,6 +45,8 @@ export default function CoursePage() {
     const courseMenuData = menuItems.filter(item => 
         courseCategories.includes(item.category)
     );
+
+    courseMenuData.push(noDessertOption);
 
     return (
         <div className='container mx-auto p-4 max-w-7xl'>
