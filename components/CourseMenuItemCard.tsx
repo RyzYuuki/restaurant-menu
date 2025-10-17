@@ -56,7 +56,7 @@ export const CourseMenuItemCard: React.FC<CourseMenuItemCardProps> = ({
                     )}
                 </div>
             ) : (
-                // 2. 通常のメニューアイテムの場合: 画像、説明、アレルゲンを表示
+                // 2. 通常のメニューアイテムの場合: 画像、説明、アレルギーを表示
                 <>
                     {/* 1. 画像 */}
                     <div className="relative w-24 h-24 flex-shrink-0 rounded-md overflow-hidden">
@@ -81,12 +81,12 @@ export const CourseMenuItemCard: React.FC<CourseMenuItemCardProps> = ({
                             )}
                         </h3>
                         
-                        {/* 説明文 (省略) */}
-                        <p className="text-sm text-gray-600 line-clamp-2 mt-1 break-words">{description}</p>
+                        {/* 説明文 */}
+                        {/* <p className="text-sm text-gray-600 line-clamp-2 mt-1 break-words">{description}</p> */}
                         
-                        {/* アレルゲン情報 */}
+                        {/* アレルギー情報 */}
                         <p className="text-xs text-gray-500 mt-2 break-words">
-                            アレルゲン: {allergens || 'なし'}
+                            アレルギー表示: {allergens || 'なし'}
                         </p>
                     </div>
                 </>
