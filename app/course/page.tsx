@@ -24,16 +24,25 @@ export default function CoursePage() {
         console.log("Sub-navigation toggle skipped on Course Page.");
     };
 
-    // デザートの「なし」オプションの定義
+    const noDrinkOption: MenuItem = {
+        id: 'no_drink_option',
+        category: 'セットドリンク',
+        name: 'なし', 
+        description: '',
+        image_path: '',
+        allergens: '',
+        base_price: 0,
+        course_extra: -250, 
+    };
     const noDessertOption: MenuItem = {
-        id: 'no_dessert',
+        id: 'no_dessert_option',
         category: 'デザート',
         name: 'なし',
         description: '',
-        image_path: '/images/no_selection.png',
+        image_path: '',
         allergens: '',
         base_price: 0,
-        course_extra: 0,
+        course_extra: -300,
     };
     
     // TypeScriptでJSONデータをMenuItem型の配列として扱う
@@ -47,6 +56,7 @@ export default function CoursePage() {
     );
 
     courseMenuData.push(noDessertOption);
+    courseMenuData.push(noDrinkOption);
 
     return (
         <div className='container mx-auto p-4 max-w-7xl'>

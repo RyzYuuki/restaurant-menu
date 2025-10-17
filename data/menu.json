@@ -64,14 +64,6 @@
         "course_extra": 0
     },
     {
-        "id": "course-drink-none",
-        "category": "セットドリンク",
-        "name": "なし",
-        "image_path": "",
-        "base_price": 0,
-        "course_extra": -500
-    },
-    {
         "id": "dessert-01",
         "category": "デザート",
         "name": "本日のジェラート",
